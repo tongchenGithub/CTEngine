@@ -1,0 +1,25 @@
+﻿  Transform.cpp
+g:\vsworkspace\myrender\transform.cpp(6): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+g:\vsworkspace\myrender\transform.cpp(7): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+g:\vsworkspace\myrender\transform.cpp(11): warning C4305: 'argument': truncation from 'double' to 'float'
+g:\vsworkspace\myrender\transform.cpp(38): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+g:\vsworkspace\myrender\transform.cpp(39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Device.cpp
+g:\vsworkspace\myrender\device.cpp(67): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(179): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(180): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(249): warning C4305: 'initializing': truncation from 'double' to 'float'
+g:\vsworkspace\myrender\device.cpp(279): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(280): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(281): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(298): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(299): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(300): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(301): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(450): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(451): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+g:\vsworkspace\myrender\device.cpp(452): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+g:\vsworkspace\myrender\device.cpp(452): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  3DRender.vcxproj -> G:\vsworkspace\MyRender\Debug\3DRender.exe
+  3DRender.vcxproj -> G:\vsworkspace\MyRender\Debug\3DRender.pdb (Full PDB)
