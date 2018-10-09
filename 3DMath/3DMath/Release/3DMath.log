@@ -1,0 +1,10 @@
+﻿  3DMath.cpp
+3DMath.cpp(40): warning C4101: 'm2': unreferenced local variable
+3DMath.cpp(40): warning C4101: 'm1': unreferenced local variable
+3DMath.cpp(40): warning C4101: 'm3': unreferenced local variable
+     Creating library E:\vsworkspace\3DMath\Release\3DMath.lib and object E:\vsworkspace\3DMath\Release\3DMath.exp
+  Generating code
+  All 20 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  3DMath.vcxproj -> E:\vsworkspace\3DMath\Release\3DMath.dll
+  3DMath.vcxproj -> E:\vsworkspace\3DMath\Release\3DMath.pdb (Full PDB)
