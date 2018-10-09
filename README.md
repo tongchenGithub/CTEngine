@@ -1,2 +1,2 @@
 # CTEngine
-Pleas run in Debug X86
+Please run in Debug X86
