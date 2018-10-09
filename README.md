@@ -1,3 +1,2 @@
 # CTEngine
-3DMath is math lib source code
-MyRender is sortrender source code
+Pleas run in Debug X86
