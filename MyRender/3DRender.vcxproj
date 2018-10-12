@@ -148,17 +148,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BitmapHelper.cpp" />
+    <ClCompile Include="HLUtils.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MeshHelper.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3DMath.h" />
-    <ClInclude Include="BitmapHelper.h" />
-    <ClInclude Include="MeshHelper.h" />
+    <ClInclude Include="HLUtils.h" />
     <ClInclude Include="TypeDefine.h" />
     <ClInclude Include="Device.h" />
     <ClInclude Include="Light.h" />

@@ -13,10 +13,7 @@
     <ClCompile Include="Transform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BitmapHelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshHelper.cpp">
+    <ClCompile Include="HLUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -42,10 +39,7 @@
     <ClInclude Include="3DMath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BitmapHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MeshHelper.h">
+    <ClInclude Include="HLUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

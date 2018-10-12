@@ -172,7 +172,7 @@ int Device::GetRealModel()
 }
 
 float inv = (float)1 / 255;
-Color BilinearInterp(int *tex, float u, float v)
+VColor BilinearInterp(int *tex, float u, float v)
 {
 	float y = u * 100, x = v * 100;
 
@@ -203,13 +203,13 @@ Color BilinearInterp(int *tex, float u, float v)
 	float w10 = (y - y0) * (x1 - x);
 	float w11 = (y - y0) * (x - x0);
 
-	Color c = {(c00 >> 16) * inv * w00 + (c01 >> 16) * inv * w01 + (c10 >> 16) * inv * w10 + (c11 >> 16) * inv * w11,
+	VColor c = {(c00 >> 16) * inv * w00 + (c01 >> 16) * inv * w01 + (c10 >> 16) * inv * w10 + (c11 >> 16) * inv * w11,
 		    (c00 >> 8 & 0xff) * inv * w00 + (c01 >> 8 & 0xff) * inv * w01 + (c10 >> 8 & 0xff) * inv * w10 + (c11 >> 8 & 0xff) * inv * w11,
 			(c00 & 0xff) * inv * w00 + (c01 & 0xff) * inv * w01 + (c10 & 0xff) * inv * w10 + (c11 & 0xff) * inv * w11};
 	return c;
 }
 
-void Device::drawPoint(const Vector& p, const Color& color, const Texcoord& tc, const Vector& normal)
+void Device::drawPoint(const Vector& p, const VColor& color, const Texcoord& tc, const Vector& normal)
 {
 	int y = (int)p.y;
 	int x = (int)p.x;
@@ -227,7 +227,7 @@ void Device::drawPoint(const Vector& p, const Color& color, const Texcoord& tc, 
 	if (s & STATE_DRAW_TEX) {
 		// tex
 		int *tex = textures[drawBmp];
-		Color tex_color;
+		VColor tex_color;
 		if (interp == INTERP_NONE) {
 			int i = int(tc.u * 100) * 100 + int(tc.v * 100);
 			i = i >= 10000 ? 10000 - 1 : i;
@@ -245,7 +245,7 @@ void Device::drawPoint(const Vector& p, const Color& color, const Texcoord& tc, 
 			float n_dot_l = VectorDotProduct(light->direction, normal);
 
 			// 默认环境光
-			Color ambient = { 1.0f, 1.0f, 1.0f };
+			VColor ambient = light->color;
 			float intensity = 0.3;
 
 			// 环境光的影响
@@ -254,7 +254,7 @@ void Device::drawPoint(const Vector& p, const Color& color, const Texcoord& tc, 
 			ambient.b *= intensity * tex_color.b;
 
 			// blend
-			Color diffuse = { 0.f, 0.f, 0.f };
+			VColor diffuse = { 0.f, 0.f, 0.f };
 			if (n_dot_l > 0) {
 				diffuse.r = tex_color.r * n_dot_l;
 				diffuse.g = tex_color.g * n_dot_l;
@@ -290,7 +290,7 @@ void Device::drawPoint(const Vector& p, const Color& color, const Texcoord& tc, 
 void Device::drawLine(const Vector& p1, const Vector& p2)
 {
 	float inv = (float)1 / 255;
-	Color color = { (foreground >> 16) * inv, (foreground >> 8 & 0xff) * inv, (foreground & 0xff) * inv };
+	VColor color = { (foreground >> 16) * inv, (foreground >> 8 & 0xff) * inv, (foreground & 0xff) * inv };
 	Texcoord tex = {0.f, 0.f};
 	Vector normal = { 0.f, 0.f, 0.f };
 

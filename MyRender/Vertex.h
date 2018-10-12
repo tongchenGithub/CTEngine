@@ -2,7 +2,7 @@
 #define __Vertex_H__
 #include "3DMath.h"
 
-struct Color 
+struct VColor
 {
 	float r;
 	float g;
@@ -18,9 +18,9 @@ struct Texcoord
 struct Vertex
 { // 点
 	Vector pos;		// 坐标
-	Color color;	// 颜色
+	VColor color;	// 颜色
 	Texcoord tex;	// UV
-	Vector normal;	// 
+	Vector normal;	// 原点到该点的向量
 	float rhw;		// 透视矫正 rhw = 1/w 
 };
 #endif

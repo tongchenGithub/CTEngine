@@ -6,6 +6,6 @@
 struct Light
 {
 	Vector direction;
-	Color color;
+	VColor color;
 };
 #endif
