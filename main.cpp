@@ -195,7 +195,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance, PSTR cmdLine, in
 	textures[1] = LoadBitmapFromFile(_T("image/1.bmp"));
 
 	// 准备设备
-	Light light = { { -1.f, 1.f, -1.f, 0.f },{ 1.0f, 1.0f, 1.0f } };
+	Light light = { { 1.f, 1.f, 1.f, 0.f },{ 1.0f, 1.0f, 1.0f } };
 	uint32* wfb = (uint32*)(screen->getFrameBuffer());
 	device = new Device();
 	device->init(WINDOW_WIDTH, WINDOW_HEIGHT, wfb, transform, textures, &light);

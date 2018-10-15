@@ -3,6 +3,7 @@
 #include "Transform.h"
 #include "Light.h"
 #include <Windows.h>
+#include <iostream>
 #include <math.h>
 
 #define STATE_DRAW_TEX 1
@@ -233,13 +234,13 @@ void Device::drawPoint(const Vector& p, const VColor& color, const Texcoord& tc,
 			i = i >= 10000 ? 10000 - 1 : i;
 			int c = tex[i]; // [0, 9999]
 			float inv = (float)1 / 255;
-			tex_color = { (c >> 16) * inv, (c >> 8 & 0xff) * inv, (c & 0xff) * inv };
+			tex_color = { (c >> 16 & 0x000000ff) * inv, (c >> 8 & 0x000000ff) * inv, (c & 0x000000ff) * inv };
 		}
 		else {
 			tex_color = BilinearInterp(tex, tc.u, tc.v);
 		}
 
-		if (bLight && !drawBmp)
+		if (bLight)
 		{
 			// light
 			float n_dot_l = VectorDotProduct(light->direction, normal);
