@@ -204,7 +204,7 @@ VColor BilinearInterp(int *tex, float u, float v)
 	float w10 = (y - y0) * (x1 - x);
 	float w11 = (y - y0) * (x - x0);
 
-	VColor c = {(c00 >> 16) * inv * w00 + (c01 >> 16) * inv * w01 + (c10 >> 16) * inv * w10 + (c11 >> 16) * inv * w11,
+	VColor c = {(c00 >> 16 & 0xff) * inv * w00 + (c01 >> 16 & 0xff) * inv * w01 + (c10 >> 16 & 0xff) * inv * w10 + (c11 >> 16 & 0xff) * inv * w11,
 		    (c00 >> 8 & 0xff) * inv * w00 + (c01 >> 8 & 0xff) * inv * w01 + (c10 >> 8 & 0xff) * inv * w10 + (c11 >> 8 & 0xff) * inv * w11,
 			(c00 & 0xff) * inv * w00 + (c01 & 0xff) * inv * w01 + (c10 & 0xff) * inv * w10 + (c11 & 0xff) * inv * w11};
 	return c;
@@ -234,7 +234,7 @@ void Device::drawPoint(const Vector& p, const VColor& color, const Texcoord& tc,
 			i = i >= 10000 ? 10000 - 1 : i;
 			int c = tex[i]; // [0, 9999]
 			float inv = (float)1 / 255;
-			tex_color = { (c >> 16 & 0x000000ff) * inv, (c >> 8 & 0x000000ff) * inv, (c & 0x000000ff) * inv };
+			tex_color = { (c >> 16 & 0xff) * inv, (c >> 8 & 0xff) * inv, (c & 0xff) * inv };
 		}
 		else {
 			tex_color = BilinearInterp(tex, tc.u, tc.v);
