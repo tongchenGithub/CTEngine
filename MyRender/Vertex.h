@@ -7,7 +7,30 @@ struct VColor
 	float r;
 	float g;
 	float b; 
+
+	VColor &operator+(const VColor& v) {
+		r += v.r;
+		g += v.g;
+		b += v.b;
+		return *this;
+	}
+
+	VColor &operator*(const float& f) {
+		r *= f;
+		g *= f;
+		b *= f;
+		return *this;
+	}
+
+	VColor &operator*(const VColor& v) {
+		r *= v.r;
+		g *= v.g;
+		b *= v.b;
+		return *this;
+	}
 };
+
+
 
 struct Texcoord 
 {
@@ -20,7 +43,7 @@ struct Vertex
 	Vector pos;		// 坐标
 	VColor color;	// 颜色
 	Texcoord tex;	// UV
-	Vector normal;	// 原点到该点的向量
+	Vector normal;	// 法向量
 	float rhw;		// 透视矫正 rhw = 1/w 
 };
 #endif

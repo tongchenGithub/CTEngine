@@ -246,30 +246,29 @@ void Device::drawPoint(const Vector& p, const VColor& color, const Texcoord& tc,
 
 			// 默认环境光
 			VColor ambient = light->color;
-			float intensity = 0.3;
+			float ambientStrength = 0.3;
 
 			// 环境光的影响
-			ambient.r *= intensity * tex_color.r;
-			ambient.g *= intensity * tex_color.g;
-			ambient.b *= intensity * tex_color.b;
+			ambient = ambient * ambientStrength ;
 
-			// blend
+			// 漫反射影响
 			VColor diffuse = { 0.f, 0.f, 0.f };
-			if (n_dot_l > 0) {
+			if (n_dot_l >= 0) { //夹角<=90
 				diffuse.r = tex_color.r * n_dot_l;
 				diffuse.g = tex_color.g * n_dot_l;
 				diffuse.b = tex_color.b * n_dot_l;
 			}
+			
+			// blend
+			VColor resultColor = ambient + diffuse;
 
-			ambient.r += diffuse.r;
-			ambient.g += diffuse.g;
-			ambient.b += diffuse.b;
+			resultColor.r = resultColor.r > 1.f ? 1.f : resultColor.r;
+			resultColor.g = resultColor.g > 1.f ? 1.f : resultColor.g;
+			resultColor.b = resultColor.b > 1.f ? 1.f : resultColor.b;
 
-			ambient.r = ambient.r > 1.f ? 1.f : ambient.r;
-			ambient.g = ambient.g > 1.f ? 1.f : ambient.g;
-			ambient.b = ambient.b > 1.f ? 1.f : ambient.b;
+			resultColor = resultColor * tex_color;
 
-			fcolor = (int(ambient.r * 255) << 16 | int(ambient.g * 255) << 8 | int(ambient.b * 255));
+			fcolor = (int(resultColor.r * 255) << 16 | int(resultColor.g * 255) << 8 | int(resultColor.b * 255));
 		}
 		else
 		{
