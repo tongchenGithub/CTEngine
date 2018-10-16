@@ -172,9 +172,8 @@ void TransformLight(Light& light, float theta)
 	Matrix m;
 	MatrixSetRotate(m, 0.f, 1.0f, 0.f, theta);
 	transform->setWorld(m);
-	transform->update();
 
-	transform->applyMV(light.direction, { -0.3f, 5.f, -0.3f, 0.f });
+	transform->applyMV(light.direction, { -1.f, 1.f, -1.f, 0.f });
 	VectorNormalize(light.direction);
 }
 
@@ -223,7 +222,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance, PSTR cmdLine, in
 		screen->dispatch();
 		SetCamera(0.f, 2.f, dist);
 
-		light_theta += 0.03f;
 		TransformLight(light, light_theta);
 
 		if (screen->getKeyUpEvent(VK_W))
